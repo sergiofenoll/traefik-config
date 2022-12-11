@@ -1,0 +1,6 @@
+tls:
+  certificates:
+    - certFile: /etc/certs/dev.sff.im.crt
+      keyFile: /etc/certs/dev.sff.im.key
+    - certFile: /etc/certs/_wildcard.dev.sff.im.crt
+      keyFile: /etc/certs/_wildcard.dev.sff.im.key

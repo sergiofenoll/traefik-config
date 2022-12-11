@@ -1,0 +1,23 @@
+providers:
+  docker:
+    defaultRule: "{{ if eq \"identifier\" (index .Labels \"com.docker.compose.service\") }} Host(`{{ (index .Labels \"com.docker.compose.project\")  }}.dev.sff.im`) || {{ end }} Host(`{{ .Name }}.dev.sff.im`)"
+    network: "traefik"
+  file:
+    directory: "/etc/traefik/dynamic"
+
+api:
+  dashboard: true
+  debug: true
+
+log:
+  level: "DEBUG"
+
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+    http:
+      tls: {}
+  streaming:
+    address: ":1704/udp"

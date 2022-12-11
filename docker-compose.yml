@@ -1,0 +1,16 @@
+version: '3'
+
+networks:
+  default:
+    name: traefik
+
+services:
+  reverse-proxy:
+    image: traefik:v2.9
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /run/user/1000/docker.sock:/var/run/docker.sock
+      - ./config:/etc/traefik
+      - ./certs:/etc/certs

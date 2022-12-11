@@ -1,0 +1,5 @@
+http:
+  routers:
+    dashboard:
+      rule: Host(`dev.sff.im`)
+      service: api@internal
